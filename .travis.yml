@@ -6,11 +6,11 @@ services:
   - docker
   
 before_install:
-  - docker build -t fabiandevia/php_ejemplo.final .
+  - docker build -t ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT} .
 
 before_script:
   - composer install --no-interaction
-  - docker images fabiandevia/php_ejemplo.final
+  - docker images ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT}
 
 script:
   - vendor/bin/phpunit
