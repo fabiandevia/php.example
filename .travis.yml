@@ -6,11 +6,11 @@ services:
   - docker
   
 before_install:
-  - docker build -t fabiandevia/php_ejemplo.final .
+  - docker build -t "$TRAVIS_BRANCH" .
 
 before_script:
   - composer install --no-interaction
-  - docker images fabiandevia/php_ejemplo.final
+  - docker images "$TRAVIS_BRANCH"
 
 script:
   - vendor/bin/phpunit
