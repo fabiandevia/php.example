@@ -18,5 +18,5 @@ script:
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    docker push -u="$DOCKER_USERNAME"/php_ejemplo.final;
+    docker push ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT};
     fi
