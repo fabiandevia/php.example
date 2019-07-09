@@ -8,7 +8,6 @@ services:
   - docker
   
 before_install:
-  - apt-get -y install libxslt-dev
   - docker build -t ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT} .
 
 before_script:
